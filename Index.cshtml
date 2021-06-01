@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProductsProject.Models.Product>
+
+
+<h2>Product List</h2>
+<div class="form-group">
+    @Html.ActionLink("Create new","Create")
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th align="center" colspan="3">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.price</td>
+                    <td>@Html.ActionLink("Details","Deatils", new { id=item.ProductId })</td>
+                    <td>@Html.ActionLink("Edit","Edit",new { id=item.ProductId})</td>
+                    <td>@Html.ActionLink("Delete","Delete", new { id=item.ProductId })</td>
+                </tr>
+            }
+    </tbody>
+</table>
+
